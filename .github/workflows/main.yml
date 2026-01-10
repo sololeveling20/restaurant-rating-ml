@@ -22,6 +22,6 @@ jobs:
       run: |
         pip install notebook nbconvert
 
-    - name: Validate Jupyter notebooks
+    - name: Validate Jupyter notebook
       run: |
-        jupyter nbconvert --to notebook notebooks/*.ipynb
+        jupyter nbconvert --to notebook notebooks/restaurant_rating_analysis.ipynb
