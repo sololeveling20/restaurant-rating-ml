@@ -24,4 +24,4 @@ jobs:
 
     - name: Validate Jupyter notebook
       run: |
-        jupyter nbconvert --to notebook notebooks/restaurant_rating_analysis.ipynb
+        jupyter nbconvert --to notebook restaurant_rating_analysis.ipynb
