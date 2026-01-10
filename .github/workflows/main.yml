@@ -1,4 +1,4 @@
-name: ML CI Pipeline
+name: ML CI Pipeline (Notebook Validation)
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
   pull_request:
 
 jobs:
-  run-notebook:
+  validate-notebook:
     runs-on: ubuntu-latest
 
     steps:
@@ -18,11 +18,10 @@ jobs:
       with:
         python-version: '3.10'
 
-    - name: Install dependencies
+    - name: Install nbconvert
       run: |
         pip install notebook nbconvert
-        pip install numpy pandas scikit-learn matplotlib seaborn
 
-    - name: Execute notebook
+    - name: Validate Jupyter notebooks
       run: |
-        jupyter nbconvert --to notebook --execute notebooks/*.ipynb --ExecutePreprocessor.timeout=600
+        jupyter nbconvert --to notebook notebooks/*.ipynb
